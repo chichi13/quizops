@@ -2,6 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(uv run pytest*)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Read(.env)"
     ]
   },
   "hooks": {
