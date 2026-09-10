@@ -44,3 +44,12 @@ def meilleurs_scores(limite: int = 10) -> list[dict]:
         {"pseudo": pseudo, "score": score, "date": date}
         for pseudo, score, date in lignes
     ]
+
+
+def statistiques() -> dict:
+    """Nombre de parties jouées et score moyen, arrondi à une décimale."""
+    with connexion() as base:
+        nombre, moyenne = base.execute(
+            "SELECT COUNT(*), AVG(score) FROM scores"
+        ).fetchone()
+    return {"nb_parties": nombre, "moyenne": round(moyenne or 0.0, 1)}
