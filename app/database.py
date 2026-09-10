@@ -31,3 +31,16 @@ def enregistrer_score(pseudo: str, score: int) -> None:
         base.execute(
             "INSERT INTO scores (pseudo, score) VALUES (?, ?)", (pseudo, score)
         )
+
+
+def meilleurs_scores(limite: int = 10) -> list[dict]:
+    """Les meilleurs scores, du plus haut au plus bas."""
+    with connexion() as base:
+        lignes = base.execute(
+            "SELECT pseudo, score, date FROM scores ORDER BY score DESC, date ASC LIMIT ?",
+            (limite,),
+        ).fetchall()
+    return [
+        {"pseudo": pseudo, "score": score, "date": date}
+        for pseudo, score, date in lignes
+    ]

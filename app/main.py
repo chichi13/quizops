@@ -39,6 +39,12 @@ def soumettre_reponses(partie: dict) -> dict:
     return {"pseudo": partie["pseudo"], "score": score}
 
 
+@app.get("/api/scores")
+def lister_scores() -> list[dict]:
+    """Le classement des dix meilleurs scores."""
+    return database.meilleurs_scores()
+
+
 app.mount("/static", StaticFiles(directory=RACINE / "static"), name="static")
 
 

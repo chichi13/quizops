@@ -82,6 +82,18 @@ async function terminerPartie() {
   fin.hidden = false;
   document.getElementById("resultat").textContent =
     `${resultat.pseudo}, votre score est de ${resultat.score} %.`;
+  afficherClassement();
+}
+
+async function afficherClassement() {
+  const reponse = await fetch("/api/scores");
+  const liste = document.getElementById("classement");
+  liste.innerHTML = "";
+  for (const entree of await reponse.json()) {
+    const ligne = document.createElement("li");
+    ligne.textContent = `${entree.pseudo} : ${entree.score} %`;
+    liste.appendChild(ligne);
+  }
 }
 
 chargerCategories();
