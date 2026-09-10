@@ -1,0 +1,14 @@
+{
+  "name": "quizops-local",
+  "description": "Place de marché locale de la formation Vibe Coding",
+  "owner": {
+    "name": "Formation Vibe Coding"
+  },
+  "plugins": [
+    {
+      "name": "quizops-kit",
+      "source": "./quizops-kit",
+      "description": "Outillage de l'équipe QuizOps : revue, ajout de question, hooks et serveur MCP Playwright"
+    }
+  ]
+}

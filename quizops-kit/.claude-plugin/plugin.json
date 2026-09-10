@@ -1,0 +1,8 @@
+{
+  "name": "quizops-kit",
+  "description": "Outillage de l'équipe QuizOps : revue, ajout de question, hooks de formatage et de garde-fou, serveur MCP Playwright",
+  "version": "1.0.0",
+  "author": {
+    "name": "Formation Vibe Coding"
+  }
+}
