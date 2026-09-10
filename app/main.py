@@ -17,9 +17,10 @@ database.initialiser()
 
 
 @app.get("/api/questions")
-def lister_questions() -> list[dict]:
-    """Les questions d'une partie, sans les bonnes réponses."""
-    return [quiz.sans_reponse(question) for question in quiz.tirer_questions(QUESTIONS)]
+def lister_questions(categorie: str | None = None) -> list[dict]:
+    """Les questions d'une partie, sans les bonnes réponses, filtrées par catégorie si demandé."""
+    questions = quiz.filtrer_par_categorie(QUESTIONS, categorie)
+    return [quiz.sans_reponse(question) for question in quiz.tirer_questions(questions)]
 
 
 @app.post("/api/answers")

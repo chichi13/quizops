@@ -34,3 +34,10 @@ def calculer_score(reponses: list[dict], questions_par_id: dict[int, dict]) -> i
     repondues = [reponse for reponse in reponses if reponse.get("choix") is not None]
     bonnes = compter_bonnes_reponses(repondues, questions_par_id)
     return round(bonnes / len(repondues) * 100)
+
+
+def filtrer_par_categorie(questions: list[dict], categorie: str | None) -> list[dict]:
+    """Les questions d'une catégorie, ou toutes les questions si aucune n'est demandée."""
+    if categorie is None:
+        return questions
+    return [question for question in questions if question["categorie"] == categorie]
