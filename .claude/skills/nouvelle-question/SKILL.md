@@ -2,7 +2,7 @@
 name: nouvelle-question
 description: Ajoute une question au quiz QuizOps dans data/questions.json puis vérifie le fichier. À utiliser quand on demande d'ajouter, de créer ou d'insérer une question de quiz.
 argument-hint: "[énoncé de la question]"
-allowed-tools: Read, Edit, Bash(uv run python .claude/skills/nouvelle-question/verifier.py)
+allowed-tools: Read, Edit, Bash(uv run python *)
 ---
 Ajoute une question au quiz QuizOps.
 

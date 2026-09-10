@@ -1,6 +1,6 @@
 """Vérifie data/questions.json : champs, propositions, réponses et identifiants uniques.
 
-Usage : uv run python .claude/skills/nouvelle-question/verifier.py
+Usage, depuis la racine du projet : uv run python <dossier du skill>/verifier.py
 Sortie : "N questions, M erreurs" ; code de retour 1 s'il y a au moins une erreur.
 """
 
@@ -8,7 +8,7 @@ import json
 import sys
 from pathlib import Path
 
-CHEMIN = Path(__file__).resolve().parents[3] / "data" / "questions.json"
+CHEMIN = Path("data/questions.json")
 CATEGORIES = {"docker", "kubernetes"}
 CHAMPS = ("id", "categorie", "question", "propositions", "reponse")
 
