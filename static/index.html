@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QuizOps</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>QuizOps</h1>
+    <p class="sous-titre">Dix questions sur Docker et Kubernetes.</p>
+
+    <section id="accueil">
+      <label for="pseudo">Votre pseudo</label>
+      <input id="pseudo" type="text" maxlength="30" placeholder="alice">
+      <button id="demarrer">Commencer la partie</button>
+    </section>
+
+    <section id="partie" hidden>
+      <p id="progression"></p>
+      <h2 id="question"></h2>
+      <div id="propositions"></div>
+      <button id="passer" class="secondaire">Passer la question</button>
+    </section>
+
+    <section id="fin" hidden>
+      <h2>Partie terminée</h2>
+      <p id="resultat"></p>
+      <button id="rejouer">Rejouer</button>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

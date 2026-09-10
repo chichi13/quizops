@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "categorie": "docker",
+    "question": "Quelle commande liste les conteneurs en cours d'exécution ?",
+    "propositions": ["docker ps", "docker images", "docker run", "docker inspect"],
+    "reponse": 0
+  },
+  {
+    "id": 2,
+    "categorie": "docker",
+    "question": "Quel fichier décrit la construction d'une image ?",
+    "propositions": ["docker-compose.yml", "Dockerfile", ".dockerignore", "Makefile"],
+    "reponse": 1
+  },
+  {
+    "id": 3,
+    "categorie": "docker",
+    "question": "Quelle instruction définit la commande lancée au démarrage du conteneur ?",
+    "propositions": ["RUN", "COPY", "CMD", "FROM"],
+    "reponse": 2
+  },
+  {
+    "id": 4,
+    "categorie": "docker",
+    "question": "Sur quel réseau un conteneur est-il connecté par défaut ?",
+    "propositions": ["host", "none", "overlay", "bridge"],
+    "reponse": 3
+  },
+  {
+    "id": 5,
+    "categorie": "docker",
+    "question": "Quelle option publie le port 80 du conteneur sur le port 8080 de l'hôte ?",
+    "propositions": ["-p 8080:80", "-p 80:8080", "--expose 8080", "-P 80"],
+    "reponse": 0
+  },
+  {
+    "id": 6,
+    "categorie": "docker",
+    "question": "Où sont stockés les volumes nommés par défaut sur un hôte Linux ?",
+    "propositions": ["/etc/docker", "/var/lib/docker/volumes", "/opt/docker", "/tmp/docker"],
+    "reponse": 1
+  },
+  {
+    "id": 7,
+    "categorie": "kubernetes",
+    "question": "Quel objet maintient un nombre donné de réplicas d'un Pod ?",
+    "propositions": ["Service", "ConfigMap", "ReplicaSet", "Ingress"],
+    "reponse": 2
+  },
+  {
+    "id": 8,
+    "categorie": "kubernetes",
+    "question": "Quel composant du plan de contrôle stocke l'état du cluster ?",
+    "propositions": ["kubelet", "kube-proxy", "kube-scheduler", "etcd"],
+    "reponse": 3
+  },
+  {
+    "id": 9,
+    "categorie": "kubernetes",
+    "question": "Quelle commande affiche les Pods de tous les namespaces ?",
+    "propositions": ["kubectl get pods -A", "kubectl get pods --all", "kubectl pods", "kubectl list pods"],
+    "reponse": 0
+  },
+  {
+    "id": 10,
+    "categorie": "kubernetes",
+    "question": "Quel type de Service ouvre un port sur chaque nœud du cluster ?",
+    "propositions": ["ClusterIP", "NodePort", "ExternalName", "Headless"],
+    "reponse": 1
+  },
+  {
+    "id": 11,
+    "categorie": "kubernetes",
+    "question": "Quel objet stocke des données sensibles encodées en base64 ?",
+    "propositions": ["ConfigMap", "Volume", "Secret", "Namespace"],
+    "reponse": 2
+  },
+  {
+    "id": 12,
+    "categorie": "kubernetes",
+    "question": "Quelle sonde indique qu'un conteneur est prêt à recevoir du trafic ?",
+    "propositions": ["livenessProbe", "startupProbe", "healthProbe", "readinessProbe"],
+    "reponse": 3
+  }
+]
