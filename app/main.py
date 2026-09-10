@@ -25,6 +25,12 @@ def lister_questions(categorie: str | None = None) -> list[dict]:
     return [quiz.sans_reponse(question) for question in quiz.tirer_questions(questions)]
 
 
+@app.get("/api/categories")
+def lister_categories() -> list[str]:
+    """Les catégories disponibles, triées, pour les boutons de l'interface."""
+    return sorted({question["categorie"] for question in QUESTIONS})
+
+
 @app.post("/api/answers")
 def soumettre_reponses(partie: dict) -> dict:
     """Reçoit les réponses d'une partie, enregistre et renvoie le score."""

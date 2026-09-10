@@ -8,9 +8,29 @@ const champPseudo = document.getElementById("pseudo");
 let questions = [];
 let index = 0;
 let reponses = [];
+let categorie = "";
+
+async function chargerCategories() {
+  const reponse = await fetch("/api/categories");
+  const conteneur = document.getElementById("categories");
+  for (const nom of await reponse.json()) {
+    const bouton = document.createElement("button");
+    bouton.className = "categorie";
+    bouton.dataset.categorie = nom;
+    bouton.textContent = nom.charAt(0).toUpperCase() + nom.slice(1);
+    conteneur.appendChild(bouton);
+  }
+  conteneur.addEventListener("click", (evenement) => {
+    if (!evenement.target.matches(".categorie")) return;
+    conteneur.querySelectorAll(".categorie").forEach((b) => b.classList.remove("choisie"));
+    evenement.target.classList.add("choisie");
+    categorie = evenement.target.dataset.categorie;
+  });
+}
 
 async function demarrerPartie() {
-  const reponse = await fetch("/api/questions");
+  const url = categorie ? `/api/questions?categorie=${categorie}` : "/api/questions";
+  const reponse = await fetch(url);
   questions = await reponse.json();
   index = 0;
   reponses = [];
@@ -64,6 +84,7 @@ async function terminerPartie() {
     `${resultat.pseudo}, votre score est de ${resultat.score} %.`;
 }
 
+chargerCategories();
 document.getElementById("demarrer").addEventListener("click", demarrerPartie);
 document.getElementById("passer").addEventListener("click", () => {
   reponses.push({ question_id: questions[index].id, choix: null });

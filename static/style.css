@@ -80,6 +80,22 @@ button.secondaire {
   color: var(--texte);
 }
 
+#categories {
+  margin-bottom: 1rem;
+}
+
+#categories .categorie {
+  background: transparent;
+  color: var(--texte);
+  border: 1px solid var(--bord);
+  margin-right: 0.5rem;
+}
+
+#categories .categorie.choisie {
+  background: var(--accent-clair);
+  border-color: var(--accent);
+}
+
 #progression {
   color: #52606d;
   font-size: 0.9rem;
