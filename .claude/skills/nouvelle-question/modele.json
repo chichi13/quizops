@@ -1,0 +1,7 @@
+{
+  "id": 99,
+  "categorie": "kubernetes",
+  "question": "Énoncé court, qui se termine par un point d'interrogation ?",
+  "propositions": ["proposition A", "proposition B", "proposition C", "proposition D"],
+  "reponse": 2
+}
