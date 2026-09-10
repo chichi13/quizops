@@ -30,10 +30,12 @@ def compter_bonnes_reponses(
 
 
 def calculer_score(reponses: list[dict], questions_par_id: dict[int, dict]) -> int:
-    """Score de la partie, en pourcentage de bonnes réponses."""
-    repondues = [reponse for reponse in reponses if reponse.get("choix") is not None]
-    bonnes = compter_bonnes_reponses(repondues, questions_par_id)
-    return round(bonnes / len(repondues) * 100)
+    """Score de la partie : bonnes réponses rapportées aux questions posées, en pourcentage."""
+    total = len(reponses)
+    if total == 0:
+        return 0
+    bonnes = compter_bonnes_reponses(reponses, questions_par_id)
+    return round(bonnes / total * 100)
 
 
 def filtrer_par_categorie(questions: list[dict], categorie: str | None) -> list[dict]:
