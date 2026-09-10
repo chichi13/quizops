@@ -62,6 +62,12 @@ def lister_scores() -> list[dict]:
     return database.meilleurs_scores()
 
 
+@app.get("/api/statistiques")
+def afficher_statistiques() -> dict:
+    """Nombre de parties jouées et score moyen."""
+    return database.statistiques()
+
+
 app.mount("/static", StaticFiles(directory=RACINE / "static"), name="static")
 
 
