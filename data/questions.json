@@ -82,5 +82,12 @@
     "question": "Quelle sonde indique qu'un conteneur est prêt à recevoir du trafic ?",
     "propositions": ["livenessProbe", "startupProbe", "healthProbe", "readinessProbe"],
     "reponse": 3
+  },
+  {
+    "id": 13,
+    "categorie": "kubernetes",
+    "question": "Sur quel port le kubelet expose-t-il son API ?",
+    "propositions": ["6443", "2379", "10250", "8080"],
+    "reponse": 2
   }
 ]
