@@ -1,9 +1,11 @@
 """API et interface de QuizOps."""
 
+import csv
+import io
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -60,6 +62,17 @@ def soumettre_reponses(partie: Partie) -> dict:
 def lister_scores() -> list[dict]:
     """Le classement des dix meilleurs scores."""
     return database.meilleurs_scores()
+
+
+@app.get("/api/scores.csv")
+def exporter_scores() -> Response:
+    """Le classement au format CSV, une ligne d'en-tête puis une ligne par score."""
+    tampon = io.StringIO()
+    ecrivain = csv.writer(tampon, lineterminator="\n")
+    ecrivain.writerow(["pseudo", "score", "date"])
+    for entree in database.meilleurs_scores():
+        ecrivain.writerow([entree["pseudo"], entree["score"], entree["date"]])
+    return Response(tampon.getvalue(), media_type="text/csv")
 
 
 @app.get("/api/statistiques")
